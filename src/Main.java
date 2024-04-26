@@ -1,6 +1,6 @@
 import list.MyArrayList;
-
-import java.util.ArrayList;
+import list.MyLinkedList;
+import list.MyList;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,5 +20,20 @@ public class Main {
         System.out.println(arrayList.indexOf(5));
        arrayList.toArray();
         System.out.println(arrayList.exist(9));
+
+
+
+
+        MyList linkedList = new MyLinkedList<>();
+        linkedList.add(4);
+        linkedList.add(5);
+        linkedList.add(4);
+        linkedList.add(12);
+        linkedList.add(3);
+        linkedList.add(21);
+        linkedList.removeFirst();
+        linkedList.removeLast();
+        System.out.println(linkedList.exist(3));
+        System.out.println(linkedList.toString());
     }
 }

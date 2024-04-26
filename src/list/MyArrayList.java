@@ -13,11 +13,11 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public void add(T item) {
+    public void add(T element) {
         if (size >= arr.length) {
             increaseBuffer();
         }
-        arr[size++] = item;
+        arr[size++] = element;
     }
 
     private void increaseBuffer() {
@@ -101,22 +101,22 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public int indexOf(Object object) {
-        if (object == null) {
+    public int indexOf(T item) {
+        if (item == null) {
             for (int i = 0; i < size; i++)
                 if (arr[i] == null)
                     return i;
         } else {
             for (int i = 0; i < size; i++)
-                if (object.equals(arr[i]))
+                if (item.equals(arr[i]))
                     return i;
         }
         return -1;
     }
 
     @Override
-    public boolean exist(Object object) {
-        return indexOf(object) >= 0;
+    public boolean exist(T item) {
+        return indexOf(item) >= 0;
     }
 
     @Override

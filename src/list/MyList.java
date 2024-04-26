@@ -25,9 +25,13 @@ public interface MyList<T> extends Iterable<T> {
 
     void sort();
 
-    int indexOf(Object object);
-    boolean exist(Object object);
+    int indexOf(T item);
+
+    boolean exist(T item);
+
     public Object[] toArray();
+
     void clear();
+
     int size();
 }
