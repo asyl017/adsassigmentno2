@@ -7,6 +7,10 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
     private int size;
     private Node<T> tail;
 
+    /**
+     * Constructs an empty MyLinkedList.
+     */
+
     private static class Node<T> {
         T item;
         Node<T> next;
@@ -25,11 +29,19 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
         }
     }
 
+    /**
+     * Constructs an empty MyLinkedList.
+     */
     public MyLinkedList() {
         head = tail = null;
         size = 0;
     }
 
+    /**
+     * Appends the specified element to the end of this list.
+     *
+     * @param item the element to be appended to this list
+     */
     @Override
     public void add(T item) {
         Node<T> newNode = new Node<>(item);
@@ -46,6 +58,13 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
 
     }
 
+    /**
+     * Replaces the element at the specified position in this list with the specified element.
+     *
+     * @param index the index of the element to replace
+     * @param item  the element to be stored at the specified position
+     */
+
     @Override
     public void set(int index, T item) {
         Node<T> node = head;
@@ -54,12 +73,24 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
         node.item = item;
     }
 
+    /**
+     * Checks whether the given index is within the bounds of the list.
+     *
+     * @param index the index to check
+     * @throws IndexOutOfBoundsException if the index is out of bounds
+     */
     private void checkIndex(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index  not correct");
         }
     }
 
+    /**
+     * Inserts the specified element at the specified position in this list.
+     *
+     * @param index the index at which the specified element is to be inserted
+     * @param item  the element to be inserted
+     */
     @Override
     public void add(int index, T item) {
         if (head == null || index == size) {
@@ -79,16 +110,32 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
             head = newNode;
     }
 
+    /**
+     * Inserts the specified element at the beginning of this list.
+     *
+     * @param item the element to be inserted at the beginning of this list
+     */
     @Override
     public void addFirst(T item) {
         add(0, item);
     }
 
+    /**
+     * Appends the specified element to the end of this list.
+     *
+     * @param item the element to be appended to this list
+     */
     @Override
     public void addLast(T item) {
         add(item);
     }
 
+    /**
+     * Returns the element at the specified position in this list.
+     *
+     * @param index the index of the element to return
+     * @return the element at the specified position in this list
+     */
     @Override
     public T get(int index) {
         checkIndex(index);
@@ -99,11 +146,21 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
         return current.item;
     }
 
+    /**
+     * Returns the first element in this list.
+     *
+     * @return the first element in this list
+     */
     @Override
     public T getFirst() {
         return get(0);
     }
 
+    /**
+     * Returns the last element in this list.
+     *
+     * @return the last element in this list
+     */
     @Override
     public T getLast() {
         return getLastNode().item;
@@ -116,6 +173,11 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
         return node;
     }
 
+    /**
+     * Removes the element at the specified position in this list.
+     *
+     * @param index the index of the element to be removed
+     */
     @Override
     public void remove(int index) {
         checkIndex(index);
@@ -131,16 +193,25 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
         size--;
     }
 
+    /**
+     * Removes the first element from this list.
+     */
     @Override
     public void removeFirst() {
         remove(0);
     }
 
+    /**
+     * Removes the last element from this list.
+     */
     @Override
     public void removeLast() {
         remove(size - 1);
     }
 
+    /**
+     * Sorts the elements of this list into ascending order, according to their natural ordering.
+     */
     @Override
     public void sort() {
         boolean swapped;
@@ -164,6 +235,14 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
         while (swapped);
     }
 
+    /**
+     * Returns the index of the first occurrence of the specified element in this list,
+     * or -1 if this list does not contain the element.
+     *
+     * @param item the element to search for
+     * @return the index of the first occurrence of the element in this list,
+     * or -1 if this list does not contain the element
+     */
     @Override
     public int indexOf(T item) {
         Node<T> node = head;
@@ -175,11 +254,22 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
         return -1;
     }
 
+    /**
+     * Returns true if this list contains the specified element.
+     *
+     * @param item the element to search for
+     * @return true if this list contains the element, otherwise false
+     */
     @Override
     public boolean exist(T item) {
         return indexOf(item) != -1;
     }
 
+    /**
+     * Returns an iterator over the elements in this list in proper sequence.
+     *
+     * @return an iterator over the elements in this list in proper sequence
+     */
     @Override
     public Object[] toArray() {
         T[] array = (T[]) new Object[size];
@@ -191,6 +281,11 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
         return array;
     }
 
+    /**
+     * Returns an iterator over the elements in this list in proper sequence.
+     *
+     * @return an iterator over the elements in this list in proper sequence
+     */
     @Override
     public void clear() {
         head = null;
@@ -203,6 +298,11 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
         return size;
     }
 
+    /**
+     * Returns an iterator over the elements in this list in proper sequence.
+     *
+     * @return an iterator over the elements in this list in proper sequence
+     */
     @Override
     public Iterator<T> iterator() {
         return new Iter();
@@ -236,6 +336,11 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
         return node;
     }
 
+    /**
+     * Returns a string representation of this list.
+     *
+     * @return a string representation of this list
+     */
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
