@@ -40,7 +40,7 @@ public class Main {
         linkedList.add(21);
         linkedList.removeFirst();
         linkedList.removeLast();
-        linkedList.add(0,3);
+        linkedList.add(0, 3);
         linkedList.addLast(4);
         linkedList.remove(0);
         linkedList.addFirst(12);
