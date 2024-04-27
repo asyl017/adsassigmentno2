@@ -4,20 +4,32 @@ import list.MyList;
 
 public class MinHeap<T extends Comparable<T>> {
     private final MyList<T> list;
-
+    /**
+     * Constructs a MinHeap with the specified list.
+     * @param list the list to be used as the underlying data structure for the MinHeap
+     */
     public MinHeap(MyList<T> list) {
         this.list = list;
     }
-
+    /**
+     * Inserts a new element into the MinHeap.
+     * @param t the element to be inserted
+     */
     public void insert(T t) {
         list.addLast(t);
         heapifyAdd(t, list.size() - 1);
     }
-
+    /**
+     * Retrieves the minimum element from the MinHeap without removing it.
+     * @return the minimum element in the MinHeap
+     */
     public T getMin() {
         return list.getFirst();
     }
-
+    /**
+     * Removes and returns the minimum element from the MinHeap.
+     * @return the minimum element removed from the MinHeap
+     */
     public T popMin() {
         T min = list.getFirst();
         list.removeFirst();
@@ -26,11 +38,18 @@ public class MinHeap<T extends Comparable<T>> {
         heapifyRemove(0);
         return min;
     }
-
+    /**
+     * Decreases the value of a specific element in the MinHeap.
+     * (Not implemented in this version)
+     */
     public void decrease() {
 
     }
-
+    /**
+     * Deletes the element at the specified index from the MinHeap.
+     * (Not implemented in this version)
+     * @param index the index of the element to be deleted
+     */
     public void delete(int index) {
     }
 

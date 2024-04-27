@@ -211,13 +211,19 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
 
     /**
      * Sorts the elements of this list into ascending order, according to their natural ordering.
+     * Bubble sort: time complexity O(n^2)
      */
     @Override
     public void sort() {
+        if (head == null || head.next == null) {
+            return;
+        }
         boolean swapped;
         Node<T> node;
+
         if (head == null)
             return;
+
         do {
             swapped = false;
             node = head;
@@ -231,8 +237,7 @@ public class MyLinkedList<T extends Object & Comparable<T>> implements MyList<T>
                 }
                 node = node.next;
             }
-        }
-        while (swapped);
+        } while (swapped);
     }
 
     /**
