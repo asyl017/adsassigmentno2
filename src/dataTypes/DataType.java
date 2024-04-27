@@ -1,12 +1,12 @@
 package dataTypes;
 
 public interface DataType<E> {
-    void push(E e);
+    void pushFirst(E e);
 
     E pop();
 
-    E get();
+    E getList();
 
-    int size();
+    int getSize();
 
 }

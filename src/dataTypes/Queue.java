@@ -10,7 +10,7 @@ public class Queue<T extends Comparable<T>> implements DataType<T> {
     }
 
     @Override
-    public void push(T t) {
+    public void pushFirst(T t) {
         list.addFirst(t);
     }
 
@@ -22,12 +22,12 @@ public class Queue<T extends Comparable<T>> implements DataType<T> {
     }
 
     @Override
-    public T get() {
+    public T getList() {
         return list.getLast();
     }
 
     @Override
-    public int size() {
+    public int getSize() {
         return list.size();
     }
 }
